@@ -1,9 +1,13 @@
-import { Button, Card, CardContent, CardDescription, CardHeader, CardMeta, Image } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
 import { useStore } from "../../../app/stores/store";
 import LoadingComponent from "../../../app/layout/loadingComponent";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 import { useEffect } from "react";
+import ActiviyDetailedHeader from "./ActivityDetailedHeader";
+import ActiviyDetailedInfo from "./ActivityDetailedInfo";
+import ActiviyDetailedChat from "./ActivityDetailedChat";
+import ActiviyDetailedSideBar from "./ActivityDetailedSideBar";
 
 
 export default observer(function ActivityDetails() {
@@ -19,23 +23,16 @@ export default observer(function ActivityDetails() {
 
     if (loadingInitial || !activity) return <LoadingComponent />
     return (
-        <Card fluid>
-            <Image src={`/assets/categoryImages/${activity.category}.jpg`} />
-            <CardContent>
-                <CardHeader>{activity.title}</CardHeader>
-                <CardMeta>
-                    <span >{activity.date}</span>
-                </CardMeta>
-                <CardDescription>
-                    {activity.description}
-                </CardDescription>
-            </CardContent>
-            <CardContent extra>
-                <Button.Group widths='2'>
-                    <Button as={Link} to={`/manage/${activity.id}`} basic color='blue' content='Edit'></Button>
-                    <Button as={Link} to={`/activities`} basic color='grey' content='Cancel'></Button>
-                </Button.Group>
-            </CardContent>
-        </Card>
+        <Grid>
+            <Grid.Column width={10}>
+                <ActiviyDetailedHeader activity={activity} />
+                <ActiviyDetailedInfo activity={activity}/>
+                <ActiviyDetailedChat/>
+            </Grid.Column>
+            <Grid.Column width={6}>
+                <ActiviyDetailedSideBar />
+
+            </Grid.Column>
+        </Grid>
     )
 })

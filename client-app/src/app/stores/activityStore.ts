@@ -21,6 +21,13 @@ export default class ActivityStore {
         return Array.from(this.activityRegistry.values()).sort((a, b) => Date.parse(a.date) - Date.parse(b.date));
 
     }
+    get groupActivities() {
+        return Object.entries(this.activitiesByDate.reduce((activities, activity) => {
+            const date = activity.date;
+            activities[date] = activities[date] ? [...activities[date], activity] : [activity]
+            return activities;
+        }, {} as { [key: string]: Activity[] }))
+    }
 
     loadActivities = async () => {
         this.setLoadingInitial(true);
@@ -70,12 +77,12 @@ export default class ActivityStore {
     setLoadingInitial = (state: boolean) => this.loadingInitial = state;
 
 
-    createActivity = async (activity: Activity)=> {
+    createActivity = async (activity: Activity) => {
         this.loading = true;
         activity.id = uuid();
         try {
 
-             await agent.Activities.create(activity);
+            await agent.Activities.create(activity);
             runInAction(() => {
                 this.activityRegistry.set(activity.id, activity)
                 this.selectedActivity = activity;
@@ -83,10 +90,10 @@ export default class ActivityStore {
                 this.loading = false;
 
             })
-           
+
         } catch (error) {
             console.log(error);
-           
+
         }
     }
     updateActivity = async (activity: Activity) => {
