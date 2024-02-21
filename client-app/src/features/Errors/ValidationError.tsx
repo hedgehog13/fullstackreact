@@ -2,7 +2,7 @@ import { Message } from "semantic-ui-react"
 
 
 interface Props {
-    errors: string[];
+    errors: string[] ;
 }
 export default function validationError({ errors }: Props) {
     return (

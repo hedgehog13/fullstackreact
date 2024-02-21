@@ -8,11 +8,11 @@ import LoadingComponent from "../../../app/layout/loadingComponent";
 import { v4 as uuid } from 'uuid';
 import { Formik, } from "formik";
 import * as Yup from 'yup';
-import MyTextInput from "../../../app/common/form/MyTestInput";
+import MyTextInput from "../../../app/common/form/MyTextInput";
 
 import MyTextAreaInput from "../../../app/common/form/MyTextArea";
 import MySelectInput from "../../../app/common/form/MySelectInput";
-import { categoryOptions } from "../../../app/common/form/Options/Category";
+import { categoryOptions } from "../../../app/common/form/options/Category";
 import MyDateInput from "../../../app/common/form/MyDateInput";
 
 
