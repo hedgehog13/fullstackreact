@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
+
 using Application.Core;
 using Application.Interfaces;
 using Domain;
@@ -36,7 +32,7 @@ namespace Application.Activities
 
 
                 if (activity == null) return null;
-                var user = await _context.Users.FirstOrDefaultAsync(x => x.UserName == _userAccessor.GetUserName());
+                var user = await _context.Users.FirstOrDefaultAsync(x => x.UserName == _userAccessor.GetUsername());
                 var hostUserName = activity.Attendees.FirstOrDefault(a => a.IsHost)?.AppUser?.UserName;
                 var attendance = activity.Attendees.FirstOrDefault(x => x.AppUser.UserName == user.UserName);
                 if (attendance != null & hostUserName == user.UserName)
@@ -54,11 +50,11 @@ namespace Application.Activities
                         AppUser = user,
                         Activity = activity,
                         IsHost = false
-
                     };
+                    activity.Attendees.Add(attendance);
                 }
-                var result =await _context.SaveChangesAsync()>0;
-                return result? Result<Unit>.Success(Unit.Value): Result<Unit>.Failure("Problem updating the attendance");
+                var result = await _context.SaveChangesAsync() > 0;
+                return result ? Result<Unit>.Success(Unit.Value) : Result<Unit>.Failure("Problem updating the attendance");
             }
         }
     }

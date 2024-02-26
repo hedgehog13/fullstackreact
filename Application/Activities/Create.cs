@@ -37,7 +37,8 @@ namespace Application.Activities
             public async Task<Result<Unit>> Handle(Command request, CancellationToken cancellationToken)
             {
 
-                var user = await _context.Users.FirstOrDefaultAsync(u => u.UserName == _userAccessor.GetUserName());
+                var user = await _context.Users.FirstOrDefaultAsync(u => 
+                    u.UserName == _userAccessor.GetUsername());
 
 
                 var attende = new ActivityAttendee
@@ -47,6 +48,8 @@ namespace Application.Activities
                     Activity = request.Activity,
                     IsHost = true
                 };
+
+                request.Activity.Attendees.Add(attende);
                 _context.Activities.Add(request.Activity);
                 var result = await _context.SaveChangesAsync() > 0;
                 if (!result)

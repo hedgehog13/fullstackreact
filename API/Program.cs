@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
+using Swashbuckle.AspNetCore.SwaggerUI;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,7 +27,29 @@ if (app.Environment.IsDevelopment())
 {
 
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(
+    //     c =>
+    // {
+
+    //     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Your API V1");
+    //     c.RoutePrefix = string.Empty; // Set Swagger UI at the app's root URL
+
+    //     // Show the "Authorize" button for adding a token
+    //     c.DocExpansion(DocExpansion.None);
+    //     c.DefaultModelExpandDepth(2);
+    //     c.DefaultModelRendering(ModelRendering.Model);
+    //     c.DefaultModelsExpandDepth(-1);
+    //     c.DisplayOperationId();
+    //     c.DisplayRequestDuration();
+    //     c.EnableDeepLinking();
+    //     c.EnableFilter();
+    //     c.MaxDisplayedTags(5);
+    //     c.ShowExtensions();
+    //     c.EnableValidator();
+    //     c.SupportedSubmitMethods(SubmitMethod.Get, SubmitMethod.Post, SubmitMethod.Put, SubmitMethod.Delete, SubmitMethod.Patch);
+
+    // }
+    );
 }
 
 app.UseCors("CorsPolicy");

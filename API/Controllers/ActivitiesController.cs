@@ -43,7 +43,7 @@ namespace API.Controllers
             return HandleResult(await Mediator.Send(new Edit.Command { Activity = activity }));
 
         }
-         [Authorize(Policy ="IActivityHost")]
+        [Authorize(Policy ="IActivityHost")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteActivity(Guid id)
         {

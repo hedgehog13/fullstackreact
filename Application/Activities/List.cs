@@ -29,8 +29,8 @@ namespace Application.Activities
             {
 
                 var activities = await _context.Activities
-              .ProjectTo<ActivityDto>(_mapper.ConfigurationProvider)
-                .ToListAsync(cancellationToken);
+                    .ProjectTo<ActivityDto>(_mapper.ConfigurationProvider)
+                    .ToListAsync(cancellationToken);
 
                 return Result<List<ActivityDto>>.Success(activities);
 

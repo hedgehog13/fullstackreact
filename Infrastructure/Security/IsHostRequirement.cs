@@ -1,8 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
+
 using System.Security.Claims;
-using System.Threading.Tasks;
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
@@ -36,9 +34,9 @@ namespace Infrastructure.Security
 
             var attendee = _dbContext.ActivityAttendees
             .AsNoTracking()
-            .SingleOrDefaultAsync(X=>X.AppUserId ==userId && X.ActivityId ==activityId)
+            .SingleOrDefaultAsync(x => x.AppUserId == userId && x.ActivityId == activityId)
             .Result;
-            
+
             if (attendee == null) return Task.CompletedTask;
             if (attendee.IsHost) context.Succeed(requirement);
             return Task.CompletedTask;
