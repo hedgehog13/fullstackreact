@@ -1,5 +1,5 @@
 
-import { Profile } from "./Profile"
+import { Profile } from "./profile"
 
 export interface IActivity {
   id: string;

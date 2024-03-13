@@ -1,5 +1,5 @@
 import { observer } from "mobx-react-lite";
-import { Profile } from "../../app/models/Profile";
+import { Profile } from "../../app/models/profile";
 import { Card, Image, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
