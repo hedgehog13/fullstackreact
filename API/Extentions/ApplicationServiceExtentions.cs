@@ -20,39 +20,18 @@ namespace API.Extentions
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen(
-            //     c =>
-            // {
-
-            //     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-            //     {
-            //         Description = "JWT Authorization header using the Bearer scheme. Enter 'Bearer' [space] and then your token in the text input below.",
-            //         Name = "Authorization",
-            //         In = ParameterLocation.Header,
-            //         Type = SecuritySchemeType.ApiKey,
-            //         Scheme = "Bearer"
-
-            //     });
-            //     c.AddSecurityRequirement( new OpenApiSecurityRequirement
-            //     {
-            //         {
-            //             new OpenApiSecurityScheme{
-            //                 Reference = new OpenApiReference{
-            //                     Type = ReferenceType.SecurityScheme,
-            //                     Id="Bearer"
-            //                 }
-            //             },
-            //             new string[]{}
-            //         }
-            //     });
-
-            // }
+         
             );
             services.AddDbContext<DataContext>(op => { op.UseSqlite(config.GetConnectionString("DefaultConnection")); });
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy", policy =>
                 {
-                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
+                    policy
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowCredentials()
+                    .WithOrigins("http://localhost:3000");
                 });
             });
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(List.Handler).Assembly));
@@ -66,6 +45,7 @@ namespace API.Extentions
             services.AddScoped<IPhotoAccessor, PhotoAccesser>();
             services.Configure<CloudinarySettings>(config.GetSection("Cloudinary"));
 
+            services.AddSignalR();
 
             return services;
         }
