@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useStore } from "../../app/stores/store";
 import { Button, Grid, Header, Tab } from "semantic-ui-react";
-import ProfileEditForm from "./ProfileEditForm";
+import ProfileEditForm from "../profiles/ProfileEditForm";
 import { observer } from "mobx-react-lite";
 
 export default observer(function ProfileAbout() {

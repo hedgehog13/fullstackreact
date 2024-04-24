@@ -85,13 +85,15 @@ namespace API.Controllers
 
         private UserDto CreateUserObject(AppUser user)
         {
-            return new UserDto
+           return new UserDto
             {
                 DisplayName = user.DisplayName,
-                Image = user?.Photos?.FirstOrDefault(x => x.IsMain).Url,
-                Token = _tokenService.CreateToken(user),
-                Username = user.UserName
+                Username = user.UserName,
+                Image = user?.Photos?.FirstOrDefault(x => x.IsMain)?.Url,
+                Token = _tokenService.CreateToken(user)
             };
+
+            
         }
     }
 }

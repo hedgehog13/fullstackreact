@@ -6,8 +6,8 @@ import ActivityDetails from "../../features/activities/details/ActivityDetails";
 import TestErrors from "../../features/Errors/TestError";
 import NotFound from "../../features/Errors/NotFound";
 import ServerError from "../../features/Errors/ServerError";
-import LoginForm from "../../features/Users/LoginForm";
-import ProfilePage from "../../features/Profiles/ProfilePage";
+import LoginForm from "../../features/users/LoginForm";
+import ProfilePage from "../../features/profiles/ProfilePage";
 
 
 export const routes: RouteObject[] = [
