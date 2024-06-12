@@ -2,7 +2,7 @@ import { HubConnection, HubConnectionBuilder, LogLevel } from "@microsoft/signal
 import { ChatComment } from "../models/comment";
 import { makeAutoObservable, runInAction } from "mobx";
 import { store } from "./store";
-import { date } from "yup";
+
 
 export default class CommentStore {
 
@@ -22,7 +22,7 @@ export default class CommentStore {
 
         if (store.activityStore.selectedActivity) {
             this.hubConnection = new HubConnectionBuilder()
-                .withUrl('http://localhost:5000/chat?activityId=' + activityId, {
+                .withUrl(import.meta.env.VITE_CHAT_URL + '?activityId=' + activityId, {
                     accessTokenFactory: (() => store.userStore.user?.token!)
                 })
                 .withAutomaticReconnect()
@@ -37,7 +37,7 @@ export default class CommentStore {
                 runInAction(() => {
                     comments.forEach(comment => {
 
-                        comment.createAt = new Date(comment.createAt + 'Z');
+                        comment.createAt = new Date(comment.createAt);
                     });
                     this.comments = comments;
                 });

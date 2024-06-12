@@ -3,7 +3,7 @@ import { observer } from "mobx-react-lite";
 import { useEffect, useState, } from "react";
 import { useStore } from "../../../app/stores/store";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { ActivityFormValues } from "../../../app/models/activity";
+import {  ActivityFormValues } from "../../../app/models/activity";
 import LoadingComponent from "../../../app/layout/loadingComponent";
 import { v4 as uuid } from 'uuid';
 import { Formik, } from "formik";
@@ -20,7 +20,7 @@ export default observer(function ActivityForm() {
 
 
     const { activityStore } = useStore();
-    const { createActivity, updateActivity,  loadActivity, loadingInitial } = activityStore;
+    const { createActivity, updateActivity, loadActivity, loadingInitial } = activityStore;
 
 
     const { id } = useParams();
@@ -46,7 +46,8 @@ export default observer(function ActivityForm() {
         if (!activity.id) {
             let newActivity = {
                 ...activity,
-                id: uuid()
+                id: uuid(),
+              
             };
             createActivity(newActivity).then(() => navigate(`/activities/${newActivity.id}`))
         } else {

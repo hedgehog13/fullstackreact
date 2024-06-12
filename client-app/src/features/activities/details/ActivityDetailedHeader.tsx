@@ -4,7 +4,7 @@ import { Button, Header, Item, Segment, Image, Label } from 'semantic-ui-react'
 import { Activity } from "../../../app/models/activity";
 import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
-import UserStore from '../../../app/stores/userStore';
+
 import { useStore } from '../../../app/stores/store';
 
 const activityImageStyle = {

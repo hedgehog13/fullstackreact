@@ -1,4 +1,4 @@
-import { keys, makeAutoObservable, reaction, runInAction } from "mobx";
+import {  makeAutoObservable, reaction, runInAction } from "mobx";
 import { Activity, ActivityFormValues } from "../models/activity";
 import agent from "../api/agent";
 
@@ -39,7 +39,7 @@ export default class ActivityStore {
     }
     setPredicate = (predicate: string, value: string | Date) => {
         const resetPredicate = () => {
-            this.predicate.forEach((value, key) => {
+            this.predicate.forEach((_, key) => {
                 if (key !== 'startDate') this.predicate.delete(key)
             })
         }
@@ -257,7 +257,7 @@ export default class ActivityStore {
     updateAttendeeFollowing = (username: string) => {
 
         this.activityRegistry.forEach(activity => {
-            activity.attendees.forEach(attendee => {
+            activity.attendees!.forEach(attendee => {
                 if (attendee.username === username) {
                     attendee.following ? attendee.followersCount-- : attendee.followersCount++;
                     attendee.following = !attendee.following;

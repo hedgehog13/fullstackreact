@@ -8,6 +8,7 @@ using FluentValidation.AspNetCore;
 using Infrastructure.Photos;
 using Infrastructure.Security;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.OpenApi.Models;
 using Persistence;
 
@@ -19,10 +20,19 @@ namespace API.Extentions
         {
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
-            services.AddSwaggerGen(
-         
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
+            }
+
             );
-            services.AddDbContext<DataContext>(op => { op.UseSqlite(config.GetConnectionString("DefaultConnection")); });
+            services.AddDbContext<DataContext>(op =>
+             {
+                string dbHost = Environment.GetEnvironmentVariable("DB_HOST") ?? "localhost";
+                      string connectionString = config.GetConnectionString("DefaultConnection")
+            .Replace("placeholder_host", dbHost);
+                 op.UseNpgsql(config.GetConnectionString("DefaultConnection"));
+             });
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy", policy =>
@@ -32,6 +42,7 @@ namespace API.Extentions
                     .AllowAnyMethod()
                     .AllowCredentials()
                     .WithOrigins("http://localhost:3000");
+                  
                 });
             });
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(List.Handler).Assembly));

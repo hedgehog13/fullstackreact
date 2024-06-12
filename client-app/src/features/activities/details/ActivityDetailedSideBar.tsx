@@ -41,7 +41,7 @@ if(!attendees) return null;
                             <Image size='tiny' src={attendee.image || '/assets/user.png'} />
                             <Item.Content verticalAlign='middle'>
                                 <Item.Header as='h3'>
-                                    <Link to={`#/profile/${attendee.username}`}>{attendee.displayName}</Link>
+                                    <Link to={`/profiles/${attendee.username}`}>{attendee.displayName}</Link>
                                 </Item.Header>
                                 {attendee.following &&
                                 <Item.Extra style={{ color: 'orange' }}>Following</Item.Extra>}

@@ -5,8 +5,8 @@ import { useState } from "react";
 import ValidationError from "./ValidationError";
 
 export default function TestErrors() {
-    const baseUrl = 'http://localhost:5000/api/'
-    const [errors, setErrors] = useState(null);
+    const baseUrl = import.meta.env.VITE_API_URL //+'/api/'
+    const [errors] = useState(null);
     function handleNotFound() {
         axios.get(baseUrl + 'buggy/not-found').catch(err => console.log(err.response));
     }
@@ -28,7 +28,7 @@ export default function TestErrors() {
     }
 
     function handleValidationError() {
-        axios.post(baseUrl + 'activities', {}).catch(err =>   console.log(err));
+        axios.post(baseUrl + 'activities', {}).catch(err => console.log(err));
     }
 
 
