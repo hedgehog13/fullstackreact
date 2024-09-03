@@ -14,7 +14,7 @@ export default observer(function HomePage() {
             <Container text>
                 <Header as='h1' inverted>
                     <Image size='massive' src='/assets/logo.png' alt='logo' style={{ marginBottom: 12 }} />
-                    Reactivities
+                    Reactivities!!!
                 </Header>
                 {userStore.isLoggedIn ? (
                     <>
