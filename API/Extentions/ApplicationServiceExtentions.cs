@@ -28,10 +28,11 @@ namespace API.Extentions
             );
             services.AddDbContext<DataContext>(op =>
              {
-                string dbHost = Environment.GetEnvironmentVariable("DB_HOST") ?? "localhost";
-                      string connectionString = config.GetConnectionString("DefaultConnection")
-            .Replace("placeholder_host", dbHost);
-                 op.UseNpgsql(config.GetConnectionString("DefaultConnection"));
+            //     string dbHost = Environment.GetEnvironmentVariable("DB_HOST") ?? "localhost";
+            //           string connectionString = config.GetConnectionString("DefaultConnection")
+            // .Replace("placeholder_host", dbHost);
+                //  op.(config.GetConnectionString("DefaultConnection"));
+                op.UseSqlServer(config.GetConnectionString("DefaultConnection"));
              });
             services.AddCors(options =>
             {

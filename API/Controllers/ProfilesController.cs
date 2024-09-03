@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Application.Profiles;
 using Microsoft.AspNetCore.Mvc;
-using SQLitePCL;
+
 
 namespace API.Controllers
 {
