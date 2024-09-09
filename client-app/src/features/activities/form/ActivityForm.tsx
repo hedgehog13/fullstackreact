@@ -12,7 +12,7 @@ import MyTextInput from "../../../app/common/form/MyTextInput";
 
 import MyTextAreaInput from "../../../app/common/form/MyTextArea";
 import MySelectInput from "../../../app/common/form/MySelectInput";
-import { categoryOptions } from "../../../app/common/form/options/Category";
+import { categoryOptions } from "../../../app/common/form/Options/Category";
 import MyDateInput from "../../../app/common/form/MyDateInput";
 
 
@@ -44,7 +44,7 @@ export default observer(function ActivityForm() {
     function handleFormSubmit(activity: ActivityFormValues) {
 
         if (!activity.id) {
-            let newActivity = {
+            const newActivity = {
                 ...activity,
                 id: uuid(),
               
