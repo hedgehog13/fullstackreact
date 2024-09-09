@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { Container, Header, Segment, Image, Button, Divider } from "semantic-ui-react";
 import { useStore } from "../../app/stores/store";
 import { observer } from "mobx-react-lite";
-import LoginForm from "../users/LoginForm";
-import RegisterForm from "../users/RegisterForm";
+import LoginForm from "../Users/LoginForm";
+import RegisterForm from "../Users/RegisterForm";
 import FacebookLogin, { FailResponse, SuccessResponse } from "@greatsumini/react-facebook-login";
 
 export default observer(function HomePage() {

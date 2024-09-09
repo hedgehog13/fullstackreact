@@ -2,7 +2,7 @@ import  { SyntheticEvent, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Tab, Grid, Header, Card, Image, TabProps } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import { UserActivity } from '../../app/models/profile';
+import { UserActivity } from '../../app/models/Profile';
 import { format } from 'date-fns';
 import { useStore } from "../../app/stores/store"
 

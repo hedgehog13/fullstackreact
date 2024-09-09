@@ -4,7 +4,7 @@ import agent from "../api/agent";
 
 import { format } from "date-fns";
 import { store } from "./store";
-import { Profile } from "../models/profile";
+import { Profile } from "../models/Profile";
 import { Pagination, PagingParams } from "../models/pagination";
 
 

@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { router } from '../router/Routers';
 import { store } from '../stores/store';
 import { User, UserFormValues } from '../models/User';
-import { Photo, Profile, UserActivity } from '../models/profile';
+import { Photo, Profile, UserActivity } from '../models/Profile';
 import { PaginatedResult } from '../models/pagination';
 
 const sleep = (delay: number) => {

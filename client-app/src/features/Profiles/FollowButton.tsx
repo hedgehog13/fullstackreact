@@ -1,5 +1,5 @@
 import { observer } from "mobx-react-lite";
-import { Profile } from "../../app/models/profile";
+import { Profile } from "../../app/models/Profile";
 import { Button, Reveal } from "semantic-ui-react";
 import { useStore } from "../../app/stores/store";
 import { SyntheticEvent } from "react";

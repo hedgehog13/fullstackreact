@@ -1,7 +1,7 @@
 
 import { observer } from "mobx-react-lite";
 import { Card, Header, Tab, Image, Grid, Button } from "semantic-ui-react";
-import { Photo, Profile } from "../../app/models/profile";
+import { Photo, Profile } from "../../app/models/Profile";
 import { useStore } from "../../app/stores/store";
 import { SyntheticEvent, useState } from "react";
 

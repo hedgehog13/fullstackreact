@@ -7,7 +7,7 @@ import TestErrors from "../../features/Errors/TestError";
 import NotFound from "../../features/Errors/NotFound";
 import ServerError from "../../features/Errors/ServerError";
 
-import ProfilePage from "../../features/profiles/ProfilePage";
+import ProfilePage from "../../features/Profiles/ProfilePage";
 import RequireAuth from "./RequireAuth";
 
 

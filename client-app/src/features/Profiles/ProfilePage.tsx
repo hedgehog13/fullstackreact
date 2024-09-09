@@ -1,6 +1,6 @@
 import { Grid } from "semantic-ui-react";
-import ProfileHeader from "../profiles//ProfileHeader";
-import ProfileContent from "../profiles//ProfileContent";
+import ProfileHeader from "./ProfileHeader";
+import ProfileContent from "./ProfileContent";
 import { useParams } from "react-router-dom";
 import { useStore } from "../../app/stores/store";
 import { observer } from "mobx-react-lite";
