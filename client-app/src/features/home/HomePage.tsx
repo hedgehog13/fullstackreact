@@ -15,7 +15,7 @@ export default observer(function HomePage() {
             <Container text>
                 <Header as='h1' inverted>
                     <Image size='massive' src='/assets/logo.png' alt='logo' style={{ marginBottom: 12 }} />
-                    Reactivities!!!
+                    Reactivities
                 </Header>
                 {userStore.isLoggedIn ? (
                     <>
@@ -27,10 +27,10 @@ export default observer(function HomePage() {
                 ) : (
                     <>
                         <Button onClick={() => modalStore.openModal(<LoginForm />)} size="huge" inverted>
-                            Login!
+                            Login
                         </Button>
                         <Button onClick={() => modalStore.openModal(<RegisterForm />)} size="huge" inverted>
-                            Register!
+                            Register
                         </Button>
                         <Divider horizontal inverted>Or</Divider>
                         <FacebookLogin appId="1072894167889303"
