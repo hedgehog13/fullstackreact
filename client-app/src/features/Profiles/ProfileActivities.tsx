@@ -1,6 +1,6 @@
 import  { SyntheticEvent, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
-import { Tab, Grid, Header, Card, Image, TabProps } from 'semantic-ui-react';
+import { Tab, Grid, Header, Card, Image, TabProps, TabPane } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { UserActivity } from '../../app/models/Profile';
 import { format } from 'date-fns';
@@ -34,7 +34,7 @@ export default observer(function ProfileActivities() {
     }
     return (
 
-        <Tab.Pane loading={loadingActivities}>
+        <TabPane loading={loadingActivities}>
             <Grid>
                 <Grid.Column width={16}>
                     <Header floated='left' icon='calendar'
@@ -76,7 +76,7 @@ export default observer(function ProfileActivities() {
                     </Card.Group>
                 </Grid.Column>
             </Grid>
-        </Tab.Pane>
+        </TabPane>
     );
 
 })

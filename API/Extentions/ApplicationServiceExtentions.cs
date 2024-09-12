@@ -9,7 +9,6 @@ using Infrastructure.Email;
 using Infrastructure.Photos;
 using Infrastructure.Security;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.OpenApi.Models;
 using Persistence;
 

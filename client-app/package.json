@@ -13,7 +13,7 @@
   "dependencies": {
     "@greatsumini/react-facebook-login": "^3.3.3",
     "@microsoft/signalr": "^8.0.0",
-    "@types/react-calendar": "^4.1.0",
+  
     "@types/yup": "^0.32.0",
     "axios": "^1.6.6",
     "date-fns": "^3.3.1",
@@ -38,6 +38,7 @@
   "devDependencies": {
     "@types/react": "^18.2.43",
     "@types/react-datepicker": "^6.0.1",
+    "@types/react-calendar": "^4.1.0",
     "@types/react-dom": "^18.2.17",
     "@types/react-infinite-scroller": "^1.2.5",
     "@types/uuid": "^9.0.8",
