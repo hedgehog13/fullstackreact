@@ -10,6 +10,8 @@ import ServerError from "../../features/Errors/ServerError";
 import ProfilePage from "../../features/Profiles/ProfilePage";
 import RequireAuth from "./RequireAuth";
 
+import RegisterSuccess from "../../features/Users/RegisterSuccess";
+
 
 export const routes: RouteObject[] = [
     {
@@ -28,7 +30,7 @@ export const routes: RouteObject[] = [
 
                 ]
             },
-
+            { path: 'account/registerSuccess', element: <RegisterSuccess /> },
             { path: 'not-found', element: <NotFound /> },
             { path: 'server-error', element: <ServerError /> },
             { path: '*', element: <Navigate replace to='/not-found' /> },

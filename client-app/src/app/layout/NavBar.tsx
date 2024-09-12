@@ -5,7 +5,7 @@ import { observer } from 'mobx-react-lite';
 import { useStore } from '../stores/store';
 
 export default observer(function NavBar() {
-    const { userStore: { user, logout } } = useStore();
+    const { userStore: { user, logout, isLoggedIn } } = useStore();
     return (
         <Menu inverted fixed='top'>
             <Container>
@@ -13,6 +13,9 @@ export default observer(function NavBar() {
                     <img src='assets/logo.png' alt='logo' style={{ marginRight: '10px' }} />
                     Reactivities
                 </Menu.Item>
+                {isLoggedIn &&
+                <>
+             
                 <Menu.Item name='Activities' as={NavLink} to='/activities' />
                 <Menu.Item name='Errors' as={NavLink} to='/errors' />
                 <Menu.Item name='Activities' >
@@ -28,6 +31,8 @@ export default observer(function NavBar() {
 
                     </Dropdown>
                 </Menu.Item>
+                </>}
+               
             </Container>
         </Menu>
     )

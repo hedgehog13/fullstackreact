@@ -6,16 +6,16 @@ import { useStore } from "../../app/stores/store";
 import { ReactNode } from "react";
 
 
-export default observer(function loginForm() {
+export default observer(function LoginForm() {
     const { userStore } = useStore();
 
     return (
 
         <Formik
             initialValues={{ email: '', password: '', error: null }}
-            onSubmit={(values: any, { setErrors }) => userStore.login(values).catch(error => {
+            onSubmit={(values, { setErrors }) => userStore.login(values).catch(error => {
                 console.log(error);
-                setErrors({ error: 'Invalid email or password' })
+                setErrors({ error: error.response.data });
             })}>
 
             {

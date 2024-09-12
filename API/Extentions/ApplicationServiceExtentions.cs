@@ -5,6 +5,7 @@ using Application.Interfaces;
 using Application.Photos;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Infrastructure.Email;
 using Infrastructure.Photos;
 using Infrastructure.Security;
 using Microsoft.EntityFrameworkCore;
@@ -28,10 +29,7 @@ namespace API.Extentions
             );
             services.AddDbContext<DataContext>(op =>
              {
-            //     string dbHost = Environment.GetEnvironmentVariable("DB_HOST") ?? "localhost";
-            //           string connectionString = config.GetConnectionString("DefaultConnection")
-            // .Replace("placeholder_host", dbHost);
-                //  op.(config.GetConnectionString("DefaultConnection"));
+        
                 op.UseSqlServer(config.GetConnectionString("DefaultConnection"));
              });
             services.AddCors(options =>
@@ -56,6 +54,7 @@ namespace API.Extentions
             services.AddScoped<IUserAccessor, UserAccessor>();
 
             services.AddScoped<IPhotoAccessor, PhotoAccesser>();
+            services.AddScoped<EmailSender>();
             services.Configure<CloudinarySettings>(config.GetSection("Cloudinary"));
 
             services.AddSignalR();
